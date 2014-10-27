@@ -136,6 +136,8 @@ publish/
 **/packages/*
 # except build/, which is used as an MSBuild target.
 !**/packages/build/
+# except zedgraph, which has been modified for this project
+!**/packages/ZedGraph.5.1.6/lib/net35-Client/
 # If using the old MSBuild-Integrated Package Restore, uncomment this:
 #!**/packages/repositories.config
 

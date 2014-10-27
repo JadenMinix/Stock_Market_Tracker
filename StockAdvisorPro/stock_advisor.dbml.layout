@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.25, 9.375" name="stock_advisor">
+  <DataContextMoniker Name="/stock_advisorDataContext" />
+  <nestedChildShapes>
+    <classShape Id="e5cd6aaf-7c33-4c82-9c3a-93a35d4c37e6" absoluteBounds="8, 2.375, 2, 1.6801985950271288">
+      <DataClassMoniker Name="/stock_advisorDataContext/ARTICLE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="237b3a10-0825-48e2-9170-917f703f8eb0" absoluteBounds="8.015, 2.835, 1.9700000000000002, 1.1201985950271287" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a55323b7-5b47-4362-aa88-dd0a085e4cc8" absoluteBounds="0.5, 6.5, 2, 1.4694238504767414">
+      <DataClassMoniker Name="/stock_advisorDataContext/USER_INFO" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9f34e9cf-7804-4c9e-99d3-f5232393ac7f" absoluteBounds="0.515, 6.96, 1.9700000000000002, 0.90942385047674179" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2549a869-3d28-449e-9b6b-17d3051cbd16" absoluteBounds="0.875, 2, 2, 1.6801985950271288">
+      <DataClassMoniker Name="/stock_advisorDataContext/DICTIONARY" />
+      <nestedChildShapes>
+        <elementListCompartment Id="04e235e0-eaf8-4ae2-aac3-b6079f8c483d" absoluteBounds="0.89000000000000012, 2.4600000000000009, 1.9700000000000002, 1.1201985950271287" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="423354f8-1bb5-4eca-b466-fd762647fed5" absoluteBounds="9, 7.125, 2, 1.6801985950271288">
+      <DataClassMoniker Name="/stock_advisorDataContext/REVIEW" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3d2357a6-323a-4231-9b8d-999f4dfb0dcd" absoluteBounds="9.015, 7.585, 1.9700000000000002, 1.1201985950271287" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="67df3e14-b745-4050-83d6-eb83fc5a67a4" absoluteBounds="4.25, 6.25, 2, 1.258649105926354">
+      <DataClassMoniker Name="/stock_advisorDataContext/SAVED_STOCK" />
+      <nestedChildShapes>
+        <elementListCompartment Id="53f603c3-5988-4ee4-af7f-b6d27d723be6" absoluteBounds="4.2650000000000006, 6.7100000000000009, 1.9700000000000002, 0.69864910592635465" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="79ab79fb-97c8-4003-a508-f10aa8d24394" absoluteBounds="4.125, 4.625, 2, 1.258649105926354">
+      <DataClassMoniker Name="/stock_advisorDataContext/STOCK" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ae669da5-2fca-43c2-92a6-9ffe6525c007" absoluteBounds="4.14, 5.085, 1.9700000000000002, 0.69864910592635465" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1fdca6bd-b152-472e-8220-295ee79a4681" absoluteBounds="4.375, 1.5, 2, 1.6801985950271288">
+      <DataClassMoniker Name="/stock_advisorDataContext/STOCK_PRICE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8852b38f-687f-4aa3-b5e1-884df25de565" absoluteBounds="4.3900000000000006, 1.9600000000000009, 1.9700000000000002, 1.1201985950271287" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.10156375 : 6.5); (2.10156375 : 3.57859537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/stock_advisorDataContext/USER_INFO/USER_INFO_DICTIONARY" />
+      <nodes>
+        <classShapeMoniker Id="a55323b7-5b47-4362-aa88-dd0a085e4cc8" />
+        <classShapeMoniker Id="2549a869-3d28-449e-9b6b-17d3051cbd16" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.5 : 3.7612939453125); (9.5 : 7.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/stock_advisorDataContext/ARTICLE/ARTICLE_REVIEW" />
+      <nodes>
+        <classShapeMoniker Id="e5cd6aaf-7c33-4c82-9c3a-93a35d4c37e6" />
+        <classShapeMoniker Id="423354f8-1bb5-4eca-b466-fd762647fed5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.5 : 7.77543002610233); (4.645 : 7.77543002610233); (4.645 : 8.81474590882147); (6.855 : 8.81474590882147); (6.855 : 7.77543002610233); (9 : 7.77543002610233)]" manuallyRouted="true" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/stock_advisorDataContext/USER_INFO/USER_INFO_REVIEW" />
+      <nodes>
+        <classShapeMoniker Id="a55323b7-5b47-4362-aa88-dd0a085e4cc8" />
+        <classShapeMoniker Id="423354f8-1bb5-4eca-b466-fd762647fed5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.5 : 6.97199625651042); (4.25 : 6.97199625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/stock_advisorDataContext/USER_INFO/USER_INFO_SAVED_STOCK" />
+      <nodes>
+        <classShapeMoniker Id="a55323b7-5b47-4362-aa88-dd0a085e4cc8" />
+        <classShapeMoniker Id="67df3e14-b745-4050-83d6-eb83fc5a67a4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.125 : 5.06726914496945); (6.5 : 5.06726914496945); (6.5 : 7.60206110689216); (9 : 7.60206110689216)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/stock_advisorDataContext/STOCK/STOCK_REVIEW" />
+      <nodes>
+        <classShapeMoniker Id="79ab79fb-97c8-4003-a508-f10aa8d24394" />
+        <classShapeMoniker Id="423354f8-1bb5-4eca-b466-fd762647fed5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.6875 : 5.81899251302083); (5.6875 : 6.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/stock_advisorDataContext/STOCK/STOCK_SAVED_STOCK" />
+      <nodes>
+        <classShapeMoniker Id="79ab79fb-97c8-4003-a508-f10aa8d24394" />
+        <classShapeMoniker Id="67df3e14-b745-4050-83d6-eb83fc5a67a4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.25 : 4.625); (5.25 : 3.07859537760417)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/stock_advisorDataContext/STOCK/STOCK_STOCK_PRICE" />
+      <nodes>
+        <classShapeMoniker Id="79ab79fb-97c8-4003-a508-f10aa8d24394" />
+        <classShapeMoniker Id="1fdca6bd-b152-472e-8220-295ee79a4681" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

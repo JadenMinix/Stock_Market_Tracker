@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="stock_advisor" Class="stock_advisorDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.ARTICLE" Member="ARTICLEs">
+    <Type Name="ARTICLE">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Article_text" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Article_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Reviewed" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="ARTICLE_REVIEW" Member="REVIEWs" ThisKey="id" OtherKey="Article_id" Type="REVIEW" />
+    </Type>
+  </Table>
+  <Table Name="dbo.USER_INFO" Member="USER_INFOs">
+    <Type Name="USER_INFO">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Username" Type="System.String" DbType="VarChar(50) NOT NULL UNIQUE" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="USER_INFO_DICTIONARY" Member="DICTIONARies" ThisKey="id" OtherKey="User_id" Type="DICTIONARY" />
+      <Association Name="USER_INFO_REVIEW" Member="REVIEWs" ThisKey="id" OtherKey="User_id" Type="REVIEW" />
+      <Association Name="USER_INFO_SAVED_STOCK" Member="SAVED_STOCKs" ThisKey="id" OtherKey="User_id" Type="SAVED_STOCK" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DICTIONARY" Member="DICTIONARies">
+    <Type Name="DICTIONARY">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="User_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Word" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Weight" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="USER_INFO_DICTIONARY" Member="USER_INFO" ThisKey="User_id" OtherKey="id" Type="USER_INFO" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.REVIEW" Member="REVIEWs">
+    <Type Name="REVIEW">
+      <Column Name="User_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Stock_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Article_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Score" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="ARTICLE_REVIEW" Member="ARTICLE" ThisKey="Article_id" OtherKey="id" Type="ARTICLE" IsForeignKey="true" />
+      <Association Name="USER_INFO_REVIEW" Member="USER_INFO" ThisKey="User_id" OtherKey="id" Type="USER_INFO" IsForeignKey="true" />
+      <Association Name="STOCK_REVIEW" Member="STOCK" ThisKey="Stock_id" OtherKey="id" Type="STOCK" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SAVED_STOCK" Member="SAVED_STOCKs">
+    <Type Name="SAVED_STOCK">
+      <Column Name="User_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Stock_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="USER_INFO_SAVED_STOCK" Member="USER_INFO" ThisKey="User_id" OtherKey="id" Type="USER_INFO" IsForeignKey="true" />
+      <Association Name="STOCK_SAVED_STOCK" Member="STOCK" ThisKey="Stock_id" OtherKey="id" Type="STOCK" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.STOCK" Member="STOCKs">
+    <Type Name="STOCK">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Symbol" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Association Name="STOCK_REVIEW" Member="REVIEWs" ThisKey="id" OtherKey="Stock_id" Type="REVIEW" />
+      <Association Name="STOCK_SAVED_STOCK" Member="SAVED_STOCKs" ThisKey="id" OtherKey="Stock_id" Type="SAVED_STOCK" />
+      <Association Name="STOCK_STOCK_PRICE" Member="STOCK_PRICEs" ThisKey="id" OtherKey="Stock_id" Type="STOCK_PRICE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.STOCK_PRICE" Member="STOCK_PRICEs">
+    <Type Name="STOCK_PRICE">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Stock_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="STOCK_STOCK_PRICE" Member="STOCK" ThisKey="Stock_id" OtherKey="id" Type="STOCK" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
